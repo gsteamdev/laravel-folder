@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ItemTable extends Migration
+class UserTables extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,14 @@ class ItemTable extends Migration
      */
     public function up()
     {
-        Schema::create('items_table', function (Blueprint $table) {
+        Schema::create('user_table', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('item_name');
-            $table->string('item_info');
             $table->string('username');
-            $table->string('user_e_mail');
-            $table->datetime('regesterd_date');
-            $table->datetime('due_date');
-            $table->binary('item_file');
+            $table->string('e_mail');
+            $table->string('course');
+            $table->string('term');
+            $table->integer('point');
+            $table->integer('num_of_items');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class ItemTable extends Migration
      */
     public function down()
     {
-        Schema::drop('items_table');
+        Schema::drop('user_table');
     }
 }
